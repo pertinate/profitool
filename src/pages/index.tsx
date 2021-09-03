@@ -4,14 +4,11 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
-import { supabase } from '../utils/initSupabase';
 import { useDispatch, useSelector } from 'react-redux';
 import useSWR from 'swr';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { changeAuthValue } from '../redux/reducers/authView';
 import { RootState } from '../redux/store';
-import ProtectedRoute from '../components/ProtectedRoute';
-import { getAuthProps } from '../utils/auth';
 import { Collapse, Divider, Menu, MenuDivider, MenuItem } from '@blueprintjs/core';
 import OrganizationSideBar from '../components/OrganizationSideBar';
 // import { authViewSlice } from '../redux/reducers/authView';
@@ -30,6 +27,7 @@ const Home: NextPage = (props) => {
             </Head>
 
             <main className={styles.main}>
+                test
                 <OrganizationSideBar />
             </main>
 
@@ -46,5 +44,4 @@ const Home: NextPage = (props) => {
     );
 };
 
-export const getServerSideProps: GetServerSideProps = getAuthProps;
 export default Home;

@@ -7,7 +7,6 @@ import useSWR from 'swr';
 import { useAppDispatch } from '../redux/hooks';
 import { changeAuthValue } from '../redux/reducers/authView';
 import fetcher from '../utils/fetcher';
-import { supabase } from '../utils/initSupabase';
 
 interface Props { }
 
@@ -30,7 +29,7 @@ function Navbar(props: Props) {
                         href="/"
                     >
                         INORYX
-                </NextLink>
+                    </NextLink>
                 </NavbarHeading>
                 <NavbarDivider />
             </NavbarGroup>
@@ -40,13 +39,13 @@ function Navbar(props: Props) {
                         onClick={() => router.push('/')}
                     >
                         Home
-                </Button>
+                    </Button>
                     <Button>
                         Create Organization
-                </Button>
+                    </Button>
                     <Button>
                         My Organization
-                </Button>
+                    </Button>
                 </ButtonGroup>
             </NavbarGroup>
             {
@@ -60,16 +59,14 @@ function Navbar(props: Props) {
                         <Button
                             icon={<IconLogOut />}
                             onClick={() => {
-                                supabase.auth.signOut().then(() => {
-                                    router.replace('/');
-                                });
+
                             }}
                             style={{
                                 marginLeft: '0.5rem'
                             }}
                         >
                             Log out
-                    </Button>
+                        </Button>
                     </NavbarGroup>
                 )
             }
